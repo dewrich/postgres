@@ -1,11 +1,11 @@
 # vim:set ft=dockerfile:
 FROM debian:jessie
 
-ENV UID 999
-ENV GID 999
+ENV POSTGRES_USER_UID 999
+ENV POSTGRES_USER_GID 999
 
 # explicitly set user/group IDs
-RUN groupadd -r postgres --gid=$GID && useradd -r -g postgres --uid=$UID postgres
+RUN groupadd -r postgres --gid=$POSTGRES_USER_GID && useradd -r -g postgres --uid=$POSTGRES_USER_UID postgres
 
 # grab gosu for easy step-down from root
 ENV GOSU_VERSION 1.7
